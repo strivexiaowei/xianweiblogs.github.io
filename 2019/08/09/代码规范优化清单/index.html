@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://strivexiaowei.github.io/xianweiblogs.github.io">
-  <title>Archives | 黄先伟的个人博客</title>
+  <title>代码规范优化清单 | 黄先伟的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近一些学习的文章">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄先伟的个人博客">
-<meta property="og:url" content="https://strivexiaowei.github.io/xianweiblogs.github.io/archives/index.html">
+  <meta name="description" content="代码规范优化清单 此篇文档主要用来汇总关于代码规范以及更好的代码优化方面的记录清单！以此来更好的提高自身的代码规范，方便他人更快的去理解自己的代码，也为了不至于让别人看到自己的代码直接爆粗口，哈哈哈… 参考文档：https://juejin.im/post/5d1c6550518825330a3bfa01#heading-12  1、关于常量 建议变量采用大写加下划线的格式规范变量名：LOGIN_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码规范优化清单">
+<meta property="og:url" content="https://strivexiaowei.github.io/xianweiblogs.github.io/2019/08/09/代码规范优化清单/index.html">
 <meta property="og:site_name" content="黄先伟的个人博客">
-<meta property="og:description" content="最近一些学习的文章">
+<meta property="og:description" content="代码规范优化清单 此篇文档主要用来汇总关于代码规范以及更好的代码优化方面的记录清单！以此来更好的提高自身的代码规范，方便他人更快的去理解自己的代码，也为了不至于让别人看到自己的代码直接爆粗口，哈哈哈… 参考文档：https://juejin.im/post/5d1c6550518825330a3bfa01#heading-12  1、关于常量 建议变量采用大写加下划线的格式规范变量名：LOGIN_">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-09T09:24:06.462Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄先伟的个人博客">
-<meta name="twitter:description" content="最近一些学习的文章">
+<meta name="twitter:title" content="代码规范优化清单">
+<meta name="twitter:description" content="代码规范优化清单 此篇文档主要用来汇总关于代码规范以及更好的代码优化方面的记录清单！以此来更好的提高自身的代码规范，方便他人更快的去理解自己的代码，也为了不至于让别人看到自己的代码直接爆粗口，哈哈哈… 参考文档：https://juejin.im/post/5d1c6550518825330a3bfa01#heading-12  1、关于常量 建议变量采用大写加下划线的格式规范变量名：LOGIN_">
   
     <link rel="alternative" href="/atom.xml" title="黄先伟的个人博客" type="application/atom+xml">
   
@@ -157,295 +158,207 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="photo-代码规范优化清单" class="article article-type-photo " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      代码规范优化清单
+    </h1>
+  
+
+        
+        <a href="/xianweiblogs.github.io/2019/08/09/代码规范优化清单/" class="archive-article-date">
+  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="代码规范优化清单"><a href="#代码规范优化清单" class="headerlink" title="代码规范优化清单"></a>代码规范优化清单</h2><blockquote>
+<p>此篇文档主要用来汇总关于代码规范以及更好的代码优化方面的记录清单！以此来更好的提高自身的代码规范，方便他人更快的去理解自己的代码，也为了不至于让别人看到自己的代码直接爆粗口，哈哈哈…</p>
+<p>参考文档：<a href="https://juejin.im/post/5d1c6550518825330a3bfa01#heading-12" target="_blank" rel="noopener">https://juejin.im/post/5d1c6550518825330a3bfa01#heading-12</a></p>
+</blockquote>
+<h3 id="1、关于常量"><a href="#1、关于常量" class="headerlink" title="1、关于常量"></a>1、关于常量</h3><ul>
+<li>建议变量采用大写加下划线的格式规范变量名：<code>LOGIN_NUM</code></li>
+</ul>
+<h3 id="2、多个函数参数"><a href="#2、多个函数参数" class="headerlink" title="2、多个函数参数"></a>2、多个函数参数</h3><ul>
+<li>函数参数如何超过2个，请使用<code>ES6的解构</code>语法，<strong>不需要考虑参数的顺序问题</strong>···</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testMoreParam</span>(<span class="params">&#123;title, age, sex, height&#125;</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(title);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">testMoreParam(&#123;</span><br><span class="line">    sex: <span class="string">'女'</span>,</span><br><span class="line">    height: <span class="string">'165cm'</span>,</span><br><span class="line">    age: <span class="number">22</span>,</span><br><span class="line">    title: <span class="string">'我是标题'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、参数默认值"><a href="#3、参数默认值" class="headerlink" title="3、参数默认值"></a>3、参数默认值</h3><ul>
+<li>一直知道，一直想不起来用…</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createMicrobrewery</span>(<span class="params">name = <span class="string">"Hipster Brew Co."</span></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、尽量简化代码，使用函数式编程，让代码更优雅"><a href="#4、尽量简化代码，使用函数式编程，让代码更优雅" class="headerlink" title="4、尽量简化代码，使用函数式编程，让代码更优雅"></a>4、尽量简化代码，使用函数式编程，让代码更优雅</h3><ul>
+<li>借此栗子学习两个重要的方法：<code>map</code> <code>reduce</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> programmerOutput = [&#123;</span><br><span class="line">    name: <span class="string">'Uncle Bobby'</span>,</span><br><span class="line">    linesOfCode: <span class="number">500</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    name: <span class="string">'Suzie Q'</span>,</span><br><span class="line">    linesOfCode: <span class="number">1500</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    name: <span class="string">'Jimmy Gosling'</span>,</span><br><span class="line">    linesOfCode: <span class="number">150</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    name: <span class="string">'Gracie Hopper'</span>,</span><br><span class="line">    linesOfCode: <span class="number">1000</span></span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">// map有一个很棒的用处：它可以从数组对象中取出某个key的所有value值再拼成一个新数组返回！</span></span><br><span class="line"><span class="built_in">console</span>.log(programmerOutput.map(<span class="function"><span class="params">ele</span> =&gt;</span> ele.linesOfCode));    <span class="comment">// [500,1500,150,1000]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> allLine = programmerOutput.map(<span class="function"><span class="params">ele</span> =&gt;</span> ele.linesOfCode).reduce(<span class="function">(<span class="params">pre, current</span>) =&gt;</span> &#123;    <span class="comment">// 合计：3150</span></span><br><span class="line">    <span class="keyword">return</span> pre + current</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>我们再来回头学习一下生疏的<code>reduce</code>语法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数： accumulator：累计器  currentValue：当前值  currentIndex：当前值的索引  array：数组  </span></span><br><span class="line"><span class="comment">// 可选：initialValue：初始值（第一次调用函数时第一个参数的值，没有提供此初始值，将使用数组中的第一个！）</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">30</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">349</span>, <span class="number">39</span>];</span><br><span class="line">array.reduce(<span class="function">(<span class="params">acc,cur</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'acc'</span>, acc); <span class="comment">// 30 -&gt; 53 -&gt; 82 -&gt; 431</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'cur'</span>, cur); <span class="comment">// 23 -&gt; 29 -&gt; 349 -&gt; 39</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'curIndex'</span>, curIndex); <span class="comment">// 1,2,3,4</span></span><br><span class="line">    <span class="keyword">return</span> acc + cur; </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">30</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">349</span>, <span class="number">39</span>];</span><br><span class="line">array.reduce(<span class="function">(<span class="params">acc, cur, curIndex</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'acc'</span>, acc); <span class="comment">// 9999 -&gt; 10029 -&gt; 10052 -&gt; 10081 -&gt; 10430</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'cur'</span>, cur); <span class="comment">// 30 -&gt; 23 -&gt; 29 -&gt; 349 -&gt; 39</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'curIndex'</span>, curIndex); <span class="comment">// 0 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 4</span></span><br><span class="line">    <span class="keyword">return</span> acc + cur;</span><br><span class="line">&#125;, <span class="number">9999</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、关于css变量-以及样式配置文件的命名规范"><a href="#5、关于css变量-以及样式配置文件的命名规范" class="headerlink" title="5、关于css变量$以及样式配置文件的命名规范"></a>5、关于css变量<code>$</code>以及样式配置文件的命名规范</h3><ul>
+<li>利用sass,less中的变量配置，在项目初期针对项目的基础配色以及字体大小，间距等…进行统一设置引用，非常有利于项目后期的维护！</li>
+<li>局部文件应该使用<code>_name</code>的形式命名。这样在编译的时候就不会把这个文件单独输出成css，而只是当做导入文件。</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// _variables.less</span></span><br><span class="line"><span class="variable">@body-bg:</span><span class="number">#f3f3f3</span>;  <span class="comment">// 页面背景颜色</span></span><br><span class="line"><span class="comment">// 色板 根据项目变化改变色</span></span><br><span class="line"><span class="variable">@blue:</span>                   <span class="number">#2080D4</span>;</span><br><span class="line"><span class="variable">@yellow:</span>                 <span class="number">#feb426</span>;</span><br><span class="line"><span class="variable">@red:</span>                    <span class="number">#f33</span>;</span><br><span class="line"><span class="variable">@green:</span>                  <span class="number">#00be71</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6、多行分割一个元素的多个属性"><a href="#6、多行分割一个元素的多个属性" class="headerlink" title="6、多行分割一个元素的多个属性"></a>6、多行分割一个元素的多个属性</h3><ul>
+<li>之前还特意将所有属性弄成一行，觉得显得代码行数少…  但是代码可读性就不高了！</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span></span></span><br><span class="line"><span class="tag">  <span class="attr">foo</span>=<span class="string">"a"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">bar</span>=<span class="string">"b"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">baz</span>=<span class="string">"c"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7、使用逻辑与运算符简化-gt-简化一般的if判断"><a href="#7、使用逻辑与运算符简化-gt-简化一般的if判断" class="headerlink" title="7、使用逻辑与运算符简化  -&gt; 简化一般的if判断"></a>7、使用逻辑与运算符简化  -&gt; 简化一般的if判断</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.condition) &#123;</span><br><span class="line">    <span class="keyword">this</span>.getUerInfo()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">this</span>.condition &amp;&amp; <span class="keyword">this</span>.getUserInfo()</span><br></pre></td></tr></table></figure>
+
+<h3 id="8、使用includes处理多重或（-）判断"><a href="#8、使用includes处理多重或（-）判断" class="headerlink" title="8、使用includes处理多重或（| |）判断"></a>8、使用<code>includes</code>处理多重或（| |）判断</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> param = <span class="string">'condition1'</span>;</span><br><span class="line"><span class="keyword">if</span> (param === <span class="string">'condition1'</span> || param === <span class="string">'condition2'</span> || param === <span class="string">'condition3'</span>) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">if</span> ([<span class="string">'condition1'</span>,<span class="string">'condition2'</span>,<span class="string">'condition3'</span>].includes(param)) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/xianweiblogs.github.io/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/">JavaScript设计模式-发布订阅模式</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://strivexiaowei.github.io/xianweiblogs.github.io/2019/08/09/代码规范优化清单/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/整理一些JavaScript和typescript规范/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          关于Set对象的学习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/xianweiblogs.github.io/2019/08/09/word插件使用记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">word插件使用记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/整理一些JavaScript和typescript规范/">整理一些JavaScript和typescript规范</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/原生小程序获取权限被拒绝/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/原生小程序获取权限被拒绝/">原生小程序获取权限被拒绝</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/关于vue动画的学习总结/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/关于vue动画的学习总结/">关于vue动画的学习总结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/WePy小程序实践总结干货/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/WePy小程序实践总结干货/">WePy小程序实践总结干货</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/angluar学习成果/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/angluar学习成果/">angluar学习成果</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/forEach到底可以改变原数组吗/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/forEach到底可以改变原数组吗/">forEach到底可以改变原数组吗</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/">关于Set对象的学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/代码规范优化清单/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/代码规范优化清单/">代码规范优化清单</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/word插件使用记录/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/word插件使用记录/">word插件使用记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/xianweiblogs.github.io/archives/page/2/">2</a><a class="extend next" rel="next" href="/xianweiblogs.github.io/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -469,8 +382,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

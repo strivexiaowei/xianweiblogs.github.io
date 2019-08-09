@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://strivexiaowei.github.io/xianweiblogs.github.io">
-  <title>Archives | 黄先伟的个人博客</title>
+  <title>黄先伟的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近一些学习的文章">
 <meta property="og:type" content="website">
 <meta property="og:title" content="黄先伟的个人博客">
-<meta property="og:url" content="https://strivexiaowei.github.io/xianweiblogs.github.io/archives/index.html">
+<meta property="og:url" content="https://strivexiaowei.github.io/xianweiblogs.github.io/page/2/index.html">
 <meta property="og:site_name" content="黄先伟的个人博客">
 <meta property="og:description" content="最近一些学习的文章">
 <meta property="og:locale" content="en">
@@ -159,292 +159,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="photo-前端面试问题解析" class="article article-type-photo  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/xianweiblogs.github.io/2019/08/09/前端面试问题解析/">前端面试问题解析</a>
+    </h1>
+  
+
+        
+        <a href="/xianweiblogs.github.io/2019/08/09/前端面试问题解析/" class="archive-article-date">
+  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
+</a>
+        
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="100题详细链接"><a href="#100题详细链接" class="headerlink" title="100题详细链接"></a><a href="https://juejin.im/post/5d23e750f265da1b855c7bbe?utm_source=gold_browser_extension" target="_blank" rel="noopener">100题详细链接</a></h2><h3 id="‘1’-‘2’-‘3’-map-parseInt-what-amp-why"><a href="#‘1’-‘2’-‘3’-map-parseInt-what-amp-why" class="headerlink" title="[‘1’, ‘2’, ‘3’].map(parseInt) what &amp; why ?"></a>[‘1’, ‘2’, ‘3’].map(parseInt) what &amp; why ?</h3><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// [<span class="number">1</span>, <span class="literal">NaN</span>, <span class="literal">NaN</span>]</span><br><span class="line">[<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>].<span class="keyword">map</span>((<span class="type">item</span>, index) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> parseInt(<span class="type">item</span>, index)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="setTimeout、Promise、Async-Await-的区别"><a href="#setTimeout、Promise、Async-Await-的区别" class="headerlink" title="setTimeout、Promise、Async/Await 的区别"></a>setTimeout、Promise、Async/Await 的区别</h3><h4 id="事件循环中分为宏任务队列和微任务队列"><a href="#事件循环中分为宏任务队列和微任务队列" class="headerlink" title="事件循环中分为宏任务队列和微任务队列"></a>事件循环中分为宏任务队列和微任务队列</h4><ul>
+<li>settimeout的回调函数放到宏任务队列里，等到执行栈清空以后执行；</li>
+<li>promise.then里的回调函数会放到相应宏任务的微任务队列里，等宏任务里面的同步代码执行完再执行；</li>
+<li>async函数表示函数里面可能会有异步方法。await后面跟一个表达式，async方法执行时，遇到await会立即执行表达式，然后把表达式后面的代码放到微任务队列里，让出执行栈让同步代码先执行。</li>
+<li>结合下题思考<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async1 start'</span>);</span><br><span class="line">  <span class="keyword">await</span> async2();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async1 end'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async2'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line">async1();</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">  resolve();</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/7" target="_blank" rel="noopener">详细解析链接</a></p>
+<h3 id="下面代码输出什么？"><a href="#下面代码输出什么？" class="headerlink" title="下面代码输出什么？"></a>下面代码输出什么？</h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a = <span class="number">10</span><span class="comment">;</span></span><br><span class="line">(<span class="name">function</span> () &#123;</span><br><span class="line">    console.log(<span class="name">a</span>)</span><br><span class="line">    a = <span class="number">5</span></span><br><span class="line">    console.log(<span class="name">window</span>.a)</span><br><span class="line">    var a = <span class="number">20</span><span class="comment">;</span></span><br><span class="line">    console.log(<span class="name">a</span>)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<h3 id="Vue-的父组件和子组件生命周期钩子执行顺序是什么"><a href="#Vue-的父组件和子组件生命周期钩子执行顺序是什么" class="headerlink" title="Vue 的父组件和子组件生命周期钩子执行顺序是什么?"></a>Vue 的父组件和子组件生命周期钩子执行顺序是什么?</h3><p>解析如<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/128" target="_blank" rel="noopener">链接</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/xianweiblogs.github.io/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/">JavaScript设计模式-发布订阅模式</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/xianweiblogs.github.io/2019/08/09/前端面试问题解析/">展开全文 >></a>
+        </p>
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/整理一些JavaScript和typescript规范/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/整理一些JavaScript和typescript规范/">整理一些JavaScript和typescript规范</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/原生小程序获取权限被拒绝/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/原生小程序获取权限被拒绝/">原生小程序获取权限被拒绝</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/关于vue动画的学习总结/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/关于vue动画的学习总结/">关于vue动画的学习总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/WePy小程序实践总结干货/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/WePy小程序实践总结干货/">WePy小程序实践总结干货</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/angluar学习成果/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/angluar学习成果/">angluar学习成果</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/forEach到底可以改变原数组吗/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/forEach到底可以改变原数组吗/">forEach到底可以改变原数组吗</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/">关于Set对象的学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/代码规范优化清单/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/代码规范优化清单/">代码规范优化清单</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/word插件使用记录/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/word插件使用记录/">word插件使用记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
-  
-
-    
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/xianweiblogs.github.io/archives/page/2/">2</a><a class="extend next" rel="next" href="/xianweiblogs.github.io/archives/page/2/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/xianweiblogs.github.io/">&laquo; Prev</a><a class="page-number" href="/xianweiblogs.github.io/">1</a><span class="page-number current">2</span>
     </nav>
   
 
@@ -468,9 +262,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

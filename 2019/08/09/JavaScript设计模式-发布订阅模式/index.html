@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://strivexiaowei.github.io/xianweiblogs.github.io">
-  <title>Archives | 黄先伟的个人博客</title>
+  <title>JavaScript设计模式-发布订阅模式 | 黄先伟的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近一些学习的文章">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄先伟的个人博客">
-<meta property="og:url" content="https://strivexiaowei.github.io/xianweiblogs.github.io/archives/index.html">
+  <meta name="description" content="JavaScript设计模式发布订阅模式发布-订阅模式又叫做观察者模式，他定义了一种一对多的依赖关系，即当一个对象的状态发生改变的时候，所有依赖他的对象都会得到通知。 123document.body.addEventListener(&apos;click&apos;,function () &amp;#123;  alert(2333);&amp;#125;,false);   发布者 缓存列表（订阅了消息对象） 发布消息的时候">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript设计模式-发布订阅模式">
+<meta property="og:url" content="https://strivexiaowei.github.io/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/index.html">
 <meta property="og:site_name" content="黄先伟的个人博客">
-<meta property="og:description" content="最近一些学习的文章">
+<meta property="og:description" content="JavaScript设计模式发布订阅模式发布-订阅模式又叫做观察者模式，他定义了一种一对多的依赖关系，即当一个对象的状态发生改变的时候，所有依赖他的对象都会得到通知。 123document.body.addEventListener(&apos;click&apos;,function () &amp;#123;  alert(2333);&amp;#125;,false);   发布者 缓存列表（订阅了消息对象） 发布消息的时候">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-09T09:28:29.754Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄先伟的个人博客">
-<meta name="twitter:description" content="最近一些学习的文章">
+<meta name="twitter:title" content="JavaScript设计模式-发布订阅模式">
+<meta name="twitter:description" content="JavaScript设计模式发布订阅模式发布-订阅模式又叫做观察者模式，他定义了一种一对多的依赖关系，即当一个对象的状态发生改变的时候，所有依赖他的对象都会得到通知。 123document.body.addEventListener(&apos;click&apos;,function () &amp;#123;  alert(2333);&amp;#125;,false);   发布者 缓存列表（订阅了消息对象） 发布消息的时候">
   
     <link rel="alternative" href="/atom.xml" title="黄先伟的个人博客" type="application/atom+xml">
   
@@ -157,295 +158,163 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="photo-JavaScript设计模式-发布订阅模式" class="article article-type-photo " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript设计模式-发布订阅模式
+    </h1>
+  
+
+        
+        <a href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/" class="archive-article-date">
+  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JavaScript设计模式"><a href="#JavaScript设计模式" class="headerlink" title="JavaScript设计模式"></a>JavaScript设计模式</h3><h4 id="发布订阅模式"><a href="#发布订阅模式" class="headerlink" title="发布订阅模式"></a>发布订阅模式</h4><p>发布-订阅模式又叫做观察者模式，他定义了一种一对多的依赖关系，即当一个对象的状态发生改变的时候，所有依赖他的对象都会得到通知。</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.<span class="keyword">body</span>.addEventListener(<span class="symbol">'click</span>',<span class="keyword">function</span> <span class="title"></span>() &#123;</span><br><span class="line">  alert(2333);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发布者</li>
+<li>缓存列表（订阅了消息对象）</li>
+<li>发布消息的时候遍历缓存列表，依次触发里面存放的订阅者的回调函数</li>
+<li>另外，回调函数中还可以添加很多参数，订阅者可以接收这些参数，订阅者收到消息后可以进行各自的处理。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> event = &#123;</span><br><span class="line">  peopleList: [],</span><br><span class="line">  listen: <span class="function"><span class="keyword">function</span> (<span class="params">key,fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.peopleList[key]) &#123; </span><br><span class="line">    <span class="comment">//如果没有订阅过此类消息，创建一个缓存列表</span></span><br><span class="line">    <span class="keyword">this</span>.peopleList[key] = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.peopleList[key].push(fn)</span><br><span class="line">  &#125;,</span><br><span class="line">  trigger: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> key = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">let</span> fns = <span class="keyword">this</span>.peopleList[key];</span><br><span class="line">    <span class="keyword">if</span> (!fns || fns.length == <span class="number">0</span>) &#123;<span class="comment">//没有订阅 则返回</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,fn;fn=fns[i++];)&#123;</span><br><span class="line">      fn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  remove:<span class="function"><span class="keyword">function</span> (<span class="params">key,fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fns = <span class="keyword">this</span>.clientList[key];</span><br><span class="line">    <span class="keyword">if</span>(!fns)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">if</span>(!fn) &#123;</span><br><span class="line">      fns &amp;&amp; (fns.length=<span class="number">0</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; fns.length; index++) &#123;</span><br><span class="line">        <span class="keyword">const</span> _fn = fns[index];</span><br><span class="line">        <span class="keyword">if</span>(_fn === fn)&#123;</span><br><span class="line">          fns.splice(index,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> installEvent  = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> event)&#123;</span><br><span class="line">    obj[i] = event[i];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> yourMsg = &#123;&#125;;</span><br><span class="line">installEvent(yourMsg);</span><br><span class="line">yourMsg.listen(<span class="string">'marrgie'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;name&#125;</span>想知道你结婚`</span>);</span><br><span class="line">&#125;)</span><br><span class="line">yourMsg.listen(<span class="string">'unemployment'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;name&#125;</span>想知道你失业`</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">yourMsg.trigger(<span class="string">'marrgie'</span>,<span class="string">'张三'</span>);</span><br><span class="line">yourMsg.trigger(<span class="string">'unemployment'</span>,<span class="string">'李四'</span>);</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/xianweiblogs.github.io/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/">JavaScript设计模式-发布订阅模式</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://strivexiaowei.github.io/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/整理一些JavaScript和typescript规范/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/xianweiblogs.github.io/2019/08/09/整理一些JavaScript和typescript规范/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">整理一些JavaScript和typescript规范</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/整理一些JavaScript和typescript规范/">整理一些JavaScript和typescript规范</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/原生小程序获取权限被拒绝/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/原生小程序获取权限被拒绝/">原生小程序获取权限被拒绝</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/关于vue动画的学习总结/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/关于vue动画的学习总结/">关于vue动画的学习总结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/WePy小程序实践总结干货/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/WePy小程序实践总结干货/">WePy小程序实践总结干货</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/angluar学习成果/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/angluar学习成果/">angluar学习成果</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/forEach到底可以改变原数组吗/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/forEach到底可以改变原数组吗/">forEach到底可以改变原数组吗</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/">关于Set对象的学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/代码规范优化清单/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/代码规范优化清单/">代码规范优化清单</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/word插件使用记录/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/word插件使用记录/">word插件使用记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/xianweiblogs.github.io/archives/page/2/">2</a><a class="extend next" rel="next" href="/xianweiblogs.github.io/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -469,8 +338,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

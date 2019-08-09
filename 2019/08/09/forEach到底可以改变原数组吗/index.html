@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://strivexiaowei.github.io/xianweiblogs.github.io">
-  <title>Archives | 黄先伟的个人博客</title>
+  <title>forEach到底可以改变原数组吗 | 黄先伟的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近一些学习的文章">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄先伟的个人博客">
-<meta property="og:url" content="https://strivexiaowei.github.io/xianweiblogs.github.io/archives/index.html">
+  <meta name="description" content="forEach到底可以改变原数组吗? 这几天在平时练习的时候，发现一个很匪夷所思的问题！就是我的印象中，forEach是可以改变原数组的呀！！！????，but ！为什么现在这么简单的字符串数字组成的数组，咋就永远改不了原数组那？？？咋就这么费劲的吗？？？ 后来，在各种尝试无果后，硬是逼着我，无奈的打开了项目，我就想看看平时我都用的这么理所当然可以改变的forEach到底咋就可以改变了！ 后来，仔">
+<meta property="og:type" content="article">
+<meta property="og:title" content="forEach到底可以改变原数组吗">
+<meta property="og:url" content="https://strivexiaowei.github.io/xianweiblogs.github.io/2019/08/09/forEach到底可以改变原数组吗/index.html">
 <meta property="og:site_name" content="黄先伟的个人博客">
-<meta property="og:description" content="最近一些学习的文章">
+<meta property="og:description" content="forEach到底可以改变原数组吗? 这几天在平时练习的时候，发现一个很匪夷所思的问题！就是我的印象中，forEach是可以改变原数组的呀！！！????，but ！为什么现在这么简单的字符串数字组成的数组，咋就永远改不了原数组那？？？咋就这么费劲的吗？？？ 后来，在各种尝试无果后，硬是逼着我，无奈的打开了项目，我就想看看平时我都用的这么理所当然可以改变的forEach到底咋就可以改变了！ 后来，仔">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-09T09:28:54.400Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄先伟的个人博客">
-<meta name="twitter:description" content="最近一些学习的文章">
+<meta name="twitter:title" content="forEach到底可以改变原数组吗">
+<meta name="twitter:description" content="forEach到底可以改变原数组吗? 这几天在平时练习的时候，发现一个很匪夷所思的问题！就是我的印象中，forEach是可以改变原数组的呀！！！????，but ！为什么现在这么简单的字符串数字组成的数组，咋就永远改不了原数组那？？？咋就这么费劲的吗？？？ 后来，在各种尝试无果后，硬是逼着我，无奈的打开了项目，我就想看看平时我都用的这么理所当然可以改变的forEach到底咋就可以改变了！ 后来，仔">
   
     <link rel="alternative" href="/atom.xml" title="黄先伟的个人博客" type="application/atom+xml">
   
@@ -157,295 +158,182 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="photo-forEach到底可以改变原数组吗" class="article article-type-photo " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      forEach到底可以改变原数组吗
+    </h1>
+  
+
+        
+        <a href="/xianweiblogs.github.io/2019/08/09/forEach到底可以改变原数组吗/" class="archive-article-date">
+  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="forEach到底可以改变原数组吗"><a href="#forEach到底可以改变原数组吗" class="headerlink" title="forEach到底可以改变原数组吗?"></a>forEach到底可以改变原数组吗?</h2><blockquote>
+<p>这几天在平时练习的时候，发现一个很匪夷所思的问题！就是我的印象中，<code>forEach</code>是可以改变原数组的呀！！！????，but ！为什么现在这么简单的字符串数字组成的数组，咋就永远改不了原数组那？？？咋就这么费劲的吗？？？</p>
+<p>后来，在各种尝试无果后，硬是逼着我，无奈的打开了项目，我就想看看平时我都用的这么理所当然可以改变的<code>forEach</code>到底咋就可以改变了！</p>
+<p>后来，仔细一看，我一般在项目中数组操作的都是<strong>对象数组</strong>，而不是<strong>数字字符串数组</strong>，接着上网一查才知道根本原因：原来是因为是<strong>引用类型与基本数据类型的区别呀！</strong></p>
+<p>参考链接：<a href="https://blog.csdn.net/Janus_lian/article/details/90403653" target="_blank" rel="noopener">https://blog.csdn.net/Janus_lian/article/details/90403653</a></p>
+</blockquote>
+<h3 id="1、基本数据类型-gt-死都改不动原数组！"><a href="#1、基本数据类型-gt-死都改不动原数组！" class="headerlink" title="1、基本数据类型 -&gt; 死都改不动原数组！"></a>1、基本数据类型 -&gt; 死都改不动原数组！</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">array.forEach(<span class="function"><span class="params">ele</span> =&gt;</span> &#123;</span><br><span class="line">ele = ele * <span class="number">3</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(array); <span class="comment">// [1,2,3,4]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2、引用类型-gt-类似对象数组可以爽快改变偶"><a href="#2、引用类型-gt-类似对象数组可以爽快改变偶" class="headerlink" title="2、引用类型 -&gt; 类似对象数组可以爽快改变偶~"></a>2、引用类型 -&gt; 类似对象数组可以爽快改变偶~</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> objArr = [&#123;</span><br><span class="line">    name: <span class="string">'wxw'</span>,</span><br><span class="line">    age: <span class="number">22</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    name: <span class="string">'wxw2'</span>,</span><br><span class="line">    age: <span class="number">33</span></span><br><span class="line">&#125;]</span><br><span class="line">objArr.forEach(<span class="function"><span class="params">ele</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (ele.name === <span class="string">'wxw2'</span>) &#123;</span><br><span class="line">        ele.age = <span class="number">88</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(objArr); <span class="comment">// [&#123;name: "wxw", age: 22&#125;,&#123;name: "wxw2", age: 88&#125;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3、那引用类型-gt-改变整个单次循环的item那？-gt-NO！不行"><a href="#3、那引用类型-gt-改变整个单次循环的item那？-gt-NO！不行" class="headerlink" title="3、那引用类型 -&gt; 改变整个单次循环的item那？ -&gt; NO！不行"></a>3、那引用类型 -&gt; 改变整个单次循环的item那？ -&gt; NO！不行</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> changeItemArr = [&#123;</span><br><span class="line">    name: <span class="string">'wxw'</span>,</span><br><span class="line">    age: <span class="number">22</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    name: <span class="string">'wxw2'</span>,</span><br><span class="line">    age: <span class="number">33</span></span><br><span class="line">&#125;]</span><br><span class="line">changeItemArr.forEach(<span class="function"><span class="params">ele</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (ele.name === <span class="string">'wxw2'</span>) &#123;</span><br><span class="line">        ele = &#123;</span><br><span class="line">            name: <span class="string">'change'</span>,</span><br><span class="line">            age: <span class="number">77</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(changeItemArr); <span class="comment">// [&#123;name: "wxw", age: 22&#125;,&#123;name: "wxw2", age: 33&#125;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4、终极无敌屡试不爽的方法！"><a href="#4、终极无敌屡试不爽的方法！" class="headerlink" title="4、终极无敌屡试不爽的方法！"></a>4、终极无敌屡试不爽的方法！</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基本类型可以欧~</span></span><br><span class="line"><span class="keyword">const</span> numArr = [<span class="number">33</span>,<span class="number">4</span>,<span class="number">55</span>];</span><br><span class="line">numArr.forEach(<span class="function">(<span class="params">ele, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (ele === <span class="number">33</span>) &#123;</span><br><span class="line">        arr[index] = <span class="number">999</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(numArr);  <span class="comment">// [999, 4, 55]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 引用类型也可以欧~</span></span><br><span class="line"><span class="keyword">const</span> allChangeArr = [&#123;</span><br><span class="line">    name: <span class="string">'wxw'</span>,</span><br><span class="line">    age: <span class="number">22</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    name: <span class="string">'wxw2'</span>,</span><br><span class="line">    age: <span class="number">33</span></span><br><span class="line">&#125;]</span><br><span class="line">allChangeArr.forEach(<span class="function">(<span class="params">ele, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (ele.name === <span class="string">'wxw2'</span>) &#123;</span><br><span class="line">        arr[index] = &#123;</span><br><span class="line">            name: <span class="string">'change'</span>,</span><br><span class="line">            age: <span class="number">77</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(allChangeArr); <span class="comment">// // [&#123;name: "wxw", age: 22&#125;,&#123;name: "change", age: 77&#125;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h3><ul>
+<li>基本类型我们当次循环拿到的<strong>ele</strong>，只是forEach给我们在另一个地方复制创建新元素，是和原数组这个元素没有半毛钱联系的！所以，我们使命给循环拿到的<strong>ele</strong>赋值都是无用功！</li>
+<li>专业的概念说就是：JavaScript是有<strong>基本数据类型</strong>与<strong>引用数据类型</strong>之分的。对于基本数据类型：<code>number</code>,<code>string</code>,<code>Boolean</code>,<code>null</code>,<code>undefined</code>它们在<strong>栈内存中直接存储变量与值</strong>。而Object对象的真正的数据是保存在<strong>堆内存</strong>，<strong>栈内只保存了对象的变量以及对应的堆的地址</strong>，所以操作Object其实就是直接操作了原数组对象本身。</li>
+<li>forEach 的基本原理也是for循环，使用arr[index]的形式赋值改变，无论什么就都可以改变了。</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/xianweiblogs.github.io/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/">JavaScript设计模式-发布订阅模式</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://strivexiaowei.github.io/xianweiblogs.github.io/2019/08/09/forEach到底可以改变原数组吗/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/整理一些JavaScript和typescript规范/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/xianweiblogs.github.io/2019/08/09/angluar学习成果/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          angluar学习成果
+        
+      </div>
+    </a>
+  
+  
+    <a href="/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于Set对象的学习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/整理一些JavaScript和typescript规范/">整理一些JavaScript和typescript规范</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/原生小程序获取权限被拒绝/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/原生小程序获取权限被拒绝/">原生小程序获取权限被拒绝</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/关于vue动画的学习总结/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/关于vue动画的学习总结/">关于vue动画的学习总结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/WePy小程序实践总结干货/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/WePy小程序实践总结干货/">WePy小程序实践总结干货</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/angluar学习成果/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/angluar学习成果/">angluar学习成果</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/forEach到底可以改变原数组吗/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/forEach到底可以改变原数组吗/">forEach到底可以改变原数组吗</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/">关于Set对象的学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/代码规范优化清单/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/代码规范优化清单/">代码规范优化清单</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/word插件使用记录/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/word插件使用记录/">word插件使用记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/xianweiblogs.github.io/archives/page/2/">2</a><a class="extend next" rel="next" href="/xianweiblogs.github.io/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -469,8 +357,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
