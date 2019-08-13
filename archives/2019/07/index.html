@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://strivexiaowei.github.io/xianweiblogs.github.io">
-  <title>关于Set对象的学习 | 黄先伟的个人博客</title>
+  <title>Archives: 2019/7 | 黄先伟的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于Set对象的学习 关于Set对象的一些方法，自己本身也没有做过专门的研究汇总，所以，只是知道它是数组去重的好选择，自己平时在项目中也没有用过这个方法… 趁着闲暇，搞一下，万一以后有用，也可以拿来即用！ 专业参考文档：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set  1、数组">
-<meta property="og:type" content="article">
-<meta property="og:title" content="关于Set对象的学习">
-<meta property="og:url" content="https://strivexiaowei.github.io/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/index.html">
+  <meta name="description" content="最近一些学习的文章">
+<meta property="og:type" content="website">
+<meta property="og:title" content="黄先伟的个人博客">
+<meta property="og:url" content="https://strivexiaowei.github.io/xianweiblogs.github.io/archives/2019/07/index.html">
 <meta property="og:site_name" content="黄先伟的个人博客">
-<meta property="og:description" content="关于Set对象的学习 关于Set对象的一些方法，自己本身也没有做过专门的研究汇总，所以，只是知道它是数组去重的好选择，自己平时在项目中也没有用过这个方法… 趁着闲暇，搞一下，万一以后有用，也可以拿来即用！ 专业参考文档：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set  1、数组">
+<meta property="og:description" content="最近一些学习的文章">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-09T09:24:20.005Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于Set对象的学习">
-<meta name="twitter:description" content="关于Set对象的学习 关于Set对象的一些方法，自己本身也没有做过专门的研究汇总，所以，只是知道它是数组去重的好选择，自己平时在项目中也没有用过这个方法… 趁着闲暇，搞一下，万一以后有用，也可以拿来即用！ 专业参考文档：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set  1、数组">
+<meta name="twitter:title" content="黄先伟的个人博客">
+<meta name="twitter:description" content="最近一些学习的文章">
   
     <link rel="alternative" href="/atom.xml" title="黄先伟的个人博客" type="application/atom+xml">
   
@@ -158,188 +157,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="photo-关于Set对象的学习" class="article article-type-photo " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      关于Set对象的学习
-    </h1>
-  
-
-        
-        <a href="/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/xianweiblogs.github.io/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/xianweiblogs.github.io/2019/07/08/工程化、模块化、组件化/" class="archive-article-date">
+  	<time datetime="2019-07-08T11:54:48.775Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-08</time>
 </a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="关于Set对象的学习"><a href="#关于Set对象的学习" class="headerlink" title="关于Set对象的学习"></a>关于Set对象的学习</h2><blockquote>
-<p>关于Set对象的一些方法，自己本身也没有做过专门的研究汇总，所以，只是知道它是数组去重的好选择，自己平时在项目中也没有用过这个方法…</p>
-<p>趁着闲暇，搞一下，万一以后有用，也可以拿来即用！</p>
-<p>专业参考文档：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set</a></p>
-</blockquote>
-<h3 id="1、数组快速去重经典例子"><a href="#1、数组快速去重经典例子" class="headerlink" title="1、数组快速去重经典例子"></a>1、数组快速去重经典例子</h3><ul>
-<li>ES6提供的新的数据结构：<code>Set</code> -&gt; 它类似于数组，但是它的成员的值都是唯一的，没有重复的值。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">33</span>, <span class="number">44</span>, <span class="number">66</span>, <span class="number">23</span>, <span class="number">23</span>, <span class="number">23</span>, <span class="number">33</span>, <span class="number">66</span>, <span class="number">0</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [...new <span class="built_in">Set</span>(array)];</span><br><span class="line"><span class="built_in">console</span>.log(arr2);  <span class="comment">//  [33, 44, 66, 23, 0]</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>Array.from()</code>：从一个类数组或者可迭代的对象中创建一个新的，浅拷贝的数组实例。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">set</span> = new Set([33, 44, 55, 66, 33]);</span><br><span class="line">const transformSetToArr = Array.from(<span class="keyword">set</span>);</span><br><span class="line">console.log(<span class="keyword">set</span>);  // Set(4) &#123;<span class="number">33</span>, <span class="number">44</span>, <span class="number">55</span>, <span class="number">66</span>&#125;</span><br><span class="line"><span class="built_in">console</span>.log(transformSetToArr);  <span class="comment">// [33, 44, 55, 66]</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="2、Set-has"><a href="#2、Set-has" class="headerlink" title="2、Set.has()"></a>2、Set.has()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> set1 = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(set1.has(<span class="number">4</span>));   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(set1.has(<span class="string">'4'</span>));   <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p>3、Set.add()</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> set2 = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line"><span class="built_in">console</span>.log(set2);  <span class="comment">// Set(0) &#123;&#125;</span></span><br><span class="line">set2.add(<span class="string">'addValue'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(set2);  <span class="comment">// Set(1) &#123;"addValue"&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4、Set-forEach"><a href="#4、Set-forEach" class="headerlink" title="4、Set.forEach()"></a>4、Set.forEach()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> set4 = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>, <span class="number">55</span>]);</span><br><span class="line"><span class="keyword">const</span> setForEach = set4.forEach(<span class="function">(<span class="params">ele</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(ele); <span class="comment">// 22.33.44,55</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="5、Set-clear"><a href="#5、Set-clear" class="headerlink" title="5、Set.clear()"></a>5、Set.clear()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> setClear = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]).clear();</span><br><span class="line"><span class="built_in">console</span>.log(setClear); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="6、Set-delete"><a href="#6、Set-delete" class="headerlink" title="6、Set.delete()"></a>6、Set.delete()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sourceSet = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>, <span class="number">55</span>]);</span><br><span class="line"><span class="keyword">const</span> setDelete = sourceSet.delete(<span class="number">55</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sourceSet); <span class="comment">// Set(3) &#123;22, 33, 44&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(sourceSet.has(<span class="number">55</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(setDelete); <span class="comment">// true (!!!竟然返回个TRUE)</span></span><br></pre></td></tr></table></figure>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
+    	 
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://strivexiaowei.github.io/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/xianweiblogs.github.io/2019/08/09/word插件使用记录/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          word插件使用记录
-        
-      </div>
-    </a>
   
   
-    <a href="/xianweiblogs.github.io/2019/08/09/前端面试问题解析/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端面试问题解析</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -362,8 +216,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
