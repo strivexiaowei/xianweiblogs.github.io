@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://strivexiaowei.github.io/xianweiblogs.github.io">
-  <title>Archives: 2019 | 黄先伟的个人博客</title>
+  <title>黄先伟的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近一些学习的文章">
-<meta property="og:type" content="website">
+  <meta name="description" content="Content-Disposition Content-Disposition 有两种运用场景  用在HTTP响应头中 场景一是用在HTTP的响应头中，指示响应的内容该以何种形式展示。是以内联的形式（即网页或者&amp;gt; 页面的一部分），还是以附件的形式下载并保存到本地。   Content-Disposition 的第一个参数的值有两个：   inline 默认值，表示响应中的消息体会以页面的一部">
+<meta property="og:type" content="article">
 <meta property="og:title" content="黄先伟的个人博客">
-<meta property="og:url" content="https://strivexiaowei.github.io/xianweiblogs.github.io/archives/2019/index.html">
+<meta property="og:url" content="https://strivexiaowei.github.io/xianweiblogs.github.io/2019/08/16/Content-Disposition/index.html">
 <meta property="og:site_name" content="黄先伟的个人博客">
-<meta property="og:description" content="最近一些学习的文章">
+<meta property="og:description" content="Content-Disposition Content-Disposition 有两种运用场景  用在HTTP响应头中 场景一是用在HTTP的响应头中，指示响应的内容该以何种形式展示。是以内联的形式（即网页或者&amp;gt; 页面的一部分），还是以附件的形式下载并保存到本地。   Content-Disposition 的第一个参数的值有两个：   inline 默认值，表示响应中的消息体会以页面的一部">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-16T02:51:45.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="黄先伟的个人博客">
-<meta name="twitter:description" content="最近一些学习的文章">
+<meta name="twitter:description" content="Content-Disposition Content-Disposition 有两种运用场景  用在HTTP响应头中 场景一是用在HTTP的响应头中，指示响应的内容该以何种形式展示。是以内联的形式（即网页或者&amp;gt; 页面的一部分），还是以附件的形式下载并保存到本地。   Content-Disposition 的第一个参数的值有两个：   inline 默认值，表示响应中的消息体会以页面的一部">
   
     <link rel="alternative" href="/atom.xml" title="黄先伟的个人博客" type="application/atom+xml">
   
@@ -157,277 +158,207 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Content-Disposition" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Content-Disposition"><a href="#Content-Disposition" class="headerlink" title="Content-Disposition"></a>Content-Disposition</h1><blockquote>
+<p><code>Content-Disposition</code> 有两种运用场景</p>
+</blockquote>
+<h2 id="用在HTTP响应头中"><a href="#用在HTTP响应头中" class="headerlink" title="用在HTTP响应头中"></a>用在HTTP响应头中</h2><blockquote>
+<p>场景一是用在HTTP的响应头中，指示响应的内容该以何种形式展示。是以内联的形式<br>（即网页或者&gt; 页面的一部分），还是以附件的形式下载并保存到本地。</p>
+</blockquote>
+<blockquote>
+<p>Content-Disposition 的第一个参数的值有两个：</p>
+</blockquote>
+<ul>
+<li>inline 默认值，表示响应中的消息体会以页面的一部分或者整个页面的形式展示。</li>
+<li>attachment 表示响应的消息体应被下载到本地；大多数浏览器会出现一个“保存为”的对话框。</li>
+</ul>
+<blockquote>
+<p>第二个参数是可选的 filename。当响应的内第一个参数指定为 attachment 时，浏览器会将响<br>中的内容下载下来，filename 可以指定下载后的文件名。</p>
+</blockquote>
+<blockquote>
+<p>Content-Disposition 在响应头中可能会这样出现：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正常解析渲染</span></span><br><span class="line">Content-Disposition: inline</span><br><span class="line"><span class="comment">// 下载文件</span></span><br><span class="line">Content-Disposition: attachment</span><br><span class="line"><span class="comment">// 下载文件，并将文件保存为filename.jpg</span></span><br><span class="line">Content-Disposition: attachment; filename=<span class="string">"filename.jpg"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="用在-multipart-form-data的请求体中"><a href="#用在-multipart-form-data的请求体中" class="headerlink" title="用在 multipart/form-data的请求体中"></a>用在 multipart/form-data的请求体中</h2><blockquote>
+<p>还有一种场景是，当页面上有表单，并且我们选择的表单提交方式为 multipart/form-data 时，<br> Content-Disposition 会出现在请求体中。其作用是说明对应的表单项的字段名是什么，表单<br>中上传的文件名是什么。在该场景下第一个参数总是固定不变的 form-data，另外有两个可选<br>参数。name 表示对应的表单项的字段名，filename 表示对应的上传的文件名。参数之间使<br>用,进行分割。</p>
+</blockquote>
+<blockquote>
+<p>Content-Disposition 在 multipart/form-data 的请求体头中可能会这样出现：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Content-Disposition: form-data</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"fieldName"</span></span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"fieldName"</span>; filename=<span class="string">"filename.jpg"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><blockquote>
+<p>接下来，我们通过一个示例来加深一下对它的印象。该示例主要演示两部分功能</p>
+</blockquote>
+<ul>
+<li>通过设置 Content-Disposition: attachment 在浏览器中下载保存请求的文件。</li>
+<li>通过实现一个 post 请求，来说明 Content-Disposition: form-data 在请求体中的展示形式。</li>
+</ul>
+<blockquote>
+<p>创建 contentDispositionDemo 目录，执行:</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express multiparty</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>服务端代码我们使用 express来实现，同时使用 multiparty 模块来处<br>理 multipart/form-data 的请求。 服务端代码如下：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">const</span> multiparty = <span class="built_in">require</span>(<span class="string">"multiparty"</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span>;</span><br><span class="line">app.use(express.static(<span class="string">"public"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 访问的时候，弹窗提示下载attachment.html，并保存为ddd.html</span></span><br><span class="line">app.get(<span class="string">"/attach"</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> options = &#123;</span><br><span class="line">    root: __dirname,</span><br><span class="line">    headers: &#123;</span><br><span class="line">      <span class="string">"Content-Disposition"</span>: <span class="string">"attachment;filename=ddd.html"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  res.sendFile(<span class="string">"/attachment.html"</span>, options, err =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      next(err);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"Sent:"</span>, <span class="string">"attachment.html"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// form-data表单提交</span></span><br><span class="line">app.post(<span class="string">"/user"</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> form = <span class="keyword">new</span> multiparty.Form();</span><br><span class="line">  <span class="keyword">var</span> name;</span><br><span class="line">  <span class="keyword">var</span> image;</span><br><span class="line">  form.on(<span class="string">"error"</span>, next);</span><br><span class="line">  form.on(<span class="string">"close"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">    <span class="built_in">console</span>.log(name);</span><br><span class="line">    <span class="built_in">console</span>.log(image);</span><br><span class="line">    res.send(<span class="string">"资料提交成功！"</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  form.on(<span class="string">"field"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">key, val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (key !== <span class="string">"image"</span>) name = val;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  form.on(<span class="string">"part"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">part</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!part.filename) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (part.name !== <span class="string">"image"</span>) <span class="keyword">return</span> part.resume();</span><br><span class="line">    image = &#123;&#125;;</span><br><span class="line">    image.filename = part.filename;</span><br><span class="line">    image.size = <span class="number">0</span>;</span><br><span class="line">    part.on(<span class="string">"data"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">buf</span>) </span>&#123;</span><br><span class="line">      image.size += buf.length;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  form.parse(req);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(port, () =&gt; <span class="built_in">console</span>.log(<span class="string">`App listening on port <span class="subst">$&#123;port&#125;</span>!`</span>));</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>接下来我们创建一个简单的表单提交页面，用户需要填写姓名和一张照片。我们将该页面放<br>在 public 目录下，页面代码如下：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--public/index.html--&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span> /&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span> /&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span> /&gt;</span><br><span class="line">    &lt;title&gt;content-disposition 示例&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;style&gt;</span></span><br><span class="line"><span class="regexp">      form &#123;</span></span><br><span class="line"><span class="regexp">        padding: 20px;</span></span><br><span class="line"><span class="regexp">        border: 1px gray solid;</span></span><br><span class="line"><span class="regexp">        background: yellowgreen;</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">      .form-item &#123;</span></span><br><span class="line"><span class="regexp">        padding: 10px 0;</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">      #commit &#123;</span></span><br><span class="line"><span class="regexp">        display: block;</span></span><br><span class="line"><span class="regexp">        width: 80px;</span></span><br><span class="line"><span class="regexp">        height: 30px;</span></span><br><span class="line"><span class="regexp">        text-align: center;</span></span><br><span class="line"><span class="regexp">        line-height: 30px;</span></span><br><span class="line"><span class="regexp">        border: 1px solid #666;</span></span><br><span class="line"><span class="regexp">        cursor: pointer;</span></span><br><span class="line"><span class="regexp">        background: #eee;</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>style&gt;</span><br><span class="line">  &lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp">  &lt;body&gt;</span></span><br><span class="line"><span class="regexp">    &lt;h1&gt;请提交您的个人资料&lt;/</span>h1&gt;</span><br><span class="line">    &lt;form&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-item"</span>&gt;</span><br><span class="line">        &lt;label <span class="keyword">for</span>=<span class="string">"name"</span>&gt;姓名：&lt;<span class="regexp">/label&gt;</span></span><br><span class="line"><span class="regexp">        &lt;input type="text" name="name" id="name" /</span>&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">      &lt;div class="form-item"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;label for="pic"&gt;照片：&lt;/</span>label&gt;</span><br><span class="line">        &lt;input type=<span class="string">"file"</span> name=<span class="string">"image"</span> id=<span class="string">"image"</span> /&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">      &lt;div class="form-item"&gt;&lt;span id="commit"&gt;提交&lt;/</span>span&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    &lt;<span class="regexp">/form&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>body&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">upload</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> formData = <span class="keyword">new</span> FormData();</span><br><span class="line">      <span class="keyword">var</span> name = <span class="built_in">document</span>.querySelector(<span class="string">"#name"</span>).value;</span><br><span class="line">      <span class="keyword">var</span> image = <span class="built_in">document</span>.querySelector(<span class="string">"#image"</span>).files[<span class="number">0</span>];</span><br><span class="line">      formData.append(<span class="string">"name"</span>, name);</span><br><span class="line">      formData.append(<span class="string">"image"</span>, image);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">      xhr.open(<span class="string">"POST"</span>, <span class="string">"/user"</span>);</span><br><span class="line">      xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (xhr.readyState === XMLHttpRequest.DONE &amp;&amp; xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(xhr.responseText);</span><br><span class="line">          alert(xhr.responseText);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">      xhr.send(formData);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">"#commit"</span>).addEventListener(</span><br><span class="line">      <span class="string">"click"</span>,</span><br><span class="line">      <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        upload();</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="literal">false</span></span><br><span class="line">    );</span><br><span class="line">  &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>另外，再创建一个HTML页面，该页面用于浏览器访问的时候下载。具体代码内容随意：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--attachment.html--&gt;</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span> /&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span> /&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span> /&gt;</span><br><span class="line">    &lt;title&gt;保存文件&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    保存文件</span><br><span class="line">  &lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/xianweiblogs.github.io/assets/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/xianweiblogs.github.io/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/16/正则表达式的学习/" class="archive-article-date">
-  	<time datetime="2019-08-16T05:34:50.933Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://strivexiaowei.github.io/xianweiblogs.github.io/2019/08/16/Content-Disposition/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/16/纯css写动态边框/" class="archive-article-date">
-  	<time datetime="2019-08-16T05:34:50.928Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/16/Content-Disposition/" class="archive-article-date">
-  	<time datetime="2019-08-16T05:34:50.911Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/xianweiblogs.github.io/2019/08/16/纯css写动态边框/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/xianweiblogs.github.io/2019/08/13/promise解决图片上传顺序问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">promise上传图片顺序问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/13/promise解决图片上传顺序问题/" class="archive-article-date">
-  	<time datetime="2019-08-13T07:29:24.486Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-13</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/13/promise解决图片上传顺序问题/">promise上传图片顺序问题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/关于Set对象的学习/">关于Set对象的学习</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/word插件使用记录/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/word插件使用记录/">word插件使用记录</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/WePy小程序实践总结干货/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/WePy小程序实践总结干货/">WePy小程序实践总结干货</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/代码规范优化清单/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/代码规范优化清单/">代码规范优化清单</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/angluar学习成果/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/angluar学习成果/">angluar学习成果</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-photo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/xianweiblogs.github.io/2019/08/09/原生小程序获取权限被拒绝/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/xianweiblogs.github.io/2019/08/09/原生小程序获取权限被拒绝/">原生小程序获取权限被拒绝</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/xianweiblogs.github.io/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/xianweiblogs.github.io/archives/2019/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -452,8 +383,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
