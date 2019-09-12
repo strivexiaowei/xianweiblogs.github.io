@@ -159,19 +159,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="photo-前端面试问题解析" class="article article-type-photo  article-index" itemscope itemprop="blogPost">
+    <article id="post-原生小程序获取权限被拒绝" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/xianweiblogs.github.io/2019/08/09/前端面试问题解析/">前端面试问题解析</a>
+      <a class="article-title" href="/xianweiblogs.github.io/2019/08/09/原生小程序获取权限被拒绝/">原生小程序获取权限被拒绝</a>
     </h1>
   
 
         
-        <a href="/xianweiblogs.github.io/2019/08/09/前端面试问题解析/" class="archive-article-date">
+        <a href="/xianweiblogs.github.io/2019/08/09/原生小程序获取权限被拒绝/" class="archive-article-date">
   	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
 </a>
         
@@ -179,22 +179,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="100题详细链接"><a href="#100题详细链接" class="headerlink" title="100题详细链接"></a><a href="https://juejin.im/post/5d23e750f265da1b855c7bbe?utm_source=gold_browser_extension" target="_blank" rel="noopener">100题详细链接</a></h2><h3 id="‘1’-‘2’-‘3’-map-parseInt-what-amp-why"><a href="#‘1’-‘2’-‘3’-map-parseInt-what-amp-why" class="headerlink" title="[‘1’, ‘2’, ‘3’].map(parseInt) what &amp; why ?"></a>[‘1’, ‘2’, ‘3’].map(parseInt) what &amp; why ?</h3><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// [<span class="number">1</span>, <span class="literal">NaN</span>, <span class="literal">NaN</span>]</span><br><span class="line">[<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>].<span class="keyword">map</span>((<span class="type">item</span>, index) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> parseInt(<span class="type">item</span>, index)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="setTimeout、Promise、Async-Await-的区别"><a href="#setTimeout、Promise、Async-Await-的区别" class="headerlink" title="setTimeout、Promise、Async/Await 的区别"></a>setTimeout、Promise、Async/Await 的区别</h3><h4 id="事件循环中分为宏任务队列和微任务队列"><a href="#事件循环中分为宏任务队列和微任务队列" class="headerlink" title="事件循环中分为宏任务队列和微任务队列"></a>事件循环中分为宏任务队列和微任务队列</h4><ul>
-<li>settimeout的回调函数放到宏任务队列里，等到执行栈清空以后执行；</li>
-<li>promise.then里的回调函数会放到相应宏任务的微任务队列里，等宏任务里面的同步代码执行完再执行；</li>
-<li>async函数表示函数里面可能会有异步方法。await后面跟一个表达式，async方法执行时，遇到await会立即执行表达式，然后把表达式后面的代码放到微任务队列里，让出执行栈让同步代码先执行。</li>
-<li>结合下题思考<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async1 start'</span>);</span><br><span class="line">  <span class="keyword">await</span> async2();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async1 end'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async2'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line">async1();</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">  resolve();</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br></pre></td></tr></table></figure>
-
-</li>
+        <h3 id="项目名称：徐汇取号小程序"><a href="#项目名称：徐汇取号小程序" class="headerlink" title="项目名称：徐汇取号小程序"></a>项目名称：徐汇取号小程序</h3><h4 id="框架：原生"><a href="#框架：原生" class="headerlink" title="框架：原生"></a>框架：原生</h4><h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h4><ul>
+<li>荣耀V9上调用wx.login会无反应（无成功也无失败回调），地图权限授权拒绝的情况。</li>
 </ul>
-<p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/7" target="_blank" rel="noopener">详细解析链接</a></p>
-<h3 id="下面代码输出什么？"><a href="#下面代码输出什么？" class="headerlink" title="下面代码输出什么？"></a>下面代码输出什么？</h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a = <span class="number">10</span><span class="comment">;</span></span><br><span class="line">(<span class="name">function</span> () &#123;</span><br><span class="line">    console.log(<span class="name">a</span>)</span><br><span class="line">    a = <span class="number">5</span></span><br><span class="line">    console.log(<span class="name">window</span>.a)</span><br><span class="line">    var a = <span class="number">20</span><span class="comment">;</span></span><br><span class="line">    console.log(<span class="name">a</span>)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-
-<h3 id="Vue-的父组件和子组件生命周期钩子执行顺序是什么"><a href="#Vue-的父组件和子组件生命周期钩子执行顺序是什么" class="headerlink" title="Vue 的父组件和子组件生命周期钩子执行顺序是什么?"></a>Vue 的父组件和子组件生命周期钩子执行顺序是什么?</h3><p>解析如<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/128" target="_blank" rel="noopener">链接</a></p>
-
+<h4 id="产生原因："><a href="#产生原因：" class="headerlink" title="产生原因："></a>产生原因：</h4><ul>
+<li>wx.login为偶发。地图授权被拒绝后弹窗提示需要用户手动授权。详情参考<a href="https://segmentfault.com/q/1010000012135863/a-1020000012797074" target="_blank" rel="noopener">链接</a></li>
+</ul>
+<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">getSetting() &#123;</span><br><span class="line">  <span class="keyword">const</span> _this = <span class="keyword">this</span>;</span><br><span class="line">  wx.getSetting(&#123;</span><br><span class="line">    success: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (!res.authSetting[<span class="string">'scope.userLocation'</span>])</span><br><span class="line">        _this.openConfirm()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line">openConfirm: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> _this = <span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">    showMap: <span class="literal">false</span></span><br><span class="line">  &#125;)</span><br><span class="line">  wx.showModal(&#123;</span><br><span class="line">    content: <span class="string">'检测到您没打开定位权限，是否去设置打开？'</span>,</span><br><span class="line">    confirmText: <span class="string">"确认"</span>,</span><br><span class="line">    cancelText: <span class="string">"取消"</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(res);</span><br><span class="line">      <span class="comment">//点击“确认”时打开设置页面</span></span><br><span class="line">      <span class="keyword">if</span> (res.confirm) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'用户点击确认'</span>)</span><br><span class="line">        wx.openSetting(&#123;</span><br><span class="line">          success: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123; </span><br><span class="line">            _this.getLocation();</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'用户点击取消'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
       
 
       
@@ -206,7 +197,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/xianweiblogs.github.io/2019/08/09/前端面试问题解析/">展开全文 >></a>
+          <a class="article-more-a" href="/xianweiblogs.github.io/2019/08/09/原生小程序获取权限被拒绝/">展开全文 >></a>
         </p>
       
 
@@ -236,159 +227,7 @@
 
 
   
-    <article id="photo-JavaScript设计模式-发布订阅模式" class="article article-type-photo  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/">JavaScript设计模式-发布订阅模式</a>
-    </h1>
-  
-
-        
-        <a href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="JavaScript设计模式"><a href="#JavaScript设计模式" class="headerlink" title="JavaScript设计模式"></a>JavaScript设计模式</h3><h4 id="发布订阅模式"><a href="#发布订阅模式" class="headerlink" title="发布订阅模式"></a>发布订阅模式</h4><p>发布-订阅模式又叫做观察者模式，他定义了一种一对多的依赖关系，即当一个对象的状态发生改变的时候，所有依赖他的对象都会得到通知。</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.<span class="keyword">body</span>.addEventListener(<span class="symbol">'click</span>',<span class="keyword">function</span> <span class="title"></span>() &#123;</span><br><span class="line">  alert(2333);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>发布者</li>
-<li>缓存列表（订阅了消息对象）</li>
-<li>发布消息的时候遍历缓存列表，依次触发里面存放的订阅者的回调函数</li>
-<li>另外，回调函数中还可以添加很多参数，订阅者可以接收这些参数，订阅者收到消息后可以进行各自的处理。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> event = &#123;</span><br><span class="line">  peopleList: [],</span><br><span class="line">  listen: <span class="function"><span class="keyword">function</span> (<span class="params">key,fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.peopleList[key]) &#123; </span><br><span class="line">    <span class="comment">//如果没有订阅过此类消息，创建一个缓存列表</span></span><br><span class="line">    <span class="keyword">this</span>.peopleList[key] = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.peopleList[key].push(fn)</span><br><span class="line">  &#125;,</span><br><span class="line">  trigger: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> key = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">let</span> fns = <span class="keyword">this</span>.peopleList[key];</span><br><span class="line">    <span class="keyword">if</span> (!fns || fns.length == <span class="number">0</span>) &#123;<span class="comment">//没有订阅 则返回</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,fn;fn=fns[i++];)&#123;</span><br><span class="line">      fn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  remove:<span class="function"><span class="keyword">function</span> (<span class="params">key,fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fns = <span class="keyword">this</span>.clientList[key];</span><br><span class="line">    <span class="keyword">if</span>(!fns)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">if</span>(!fn) &#123;</span><br><span class="line">      fns &amp;&amp; (fns.length=<span class="number">0</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; fns.length; index++) &#123;</span><br><span class="line">        <span class="keyword">const</span> _fn = fns[index];</span><br><span class="line">        <span class="keyword">if</span>(_fn === fn)&#123;</span><br><span class="line">          fns.splice(index,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> installEvent  = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> event)&#123;</span><br><span class="line">    obj[i] = event[i];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> yourMsg = &#123;&#125;;</span><br><span class="line">installEvent(yourMsg);</span><br><span class="line">yourMsg.listen(<span class="string">'marrgie'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;name&#125;</span>想知道你结婚`</span>);</span><br><span class="line">&#125;)</span><br><span class="line">yourMsg.listen(<span class="string">'unemployment'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;name&#125;</span>想知道你失业`</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">yourMsg.trigger(<span class="string">'marrgie'</span>,<span class="string">'张三'</span>);</span><br><span class="line">yourMsg.trigger(<span class="string">'unemployment'</span>,<span class="string">'李四'</span>);</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="photo-forEach到底可以改变原数组吗" class="article article-type-photo  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/xianweiblogs.github.io/2019/08/09/forEach到底可以改变原数组吗/">forEach到底可以改变原数组吗</a>
-    </h1>
-  
-
-        
-        <a href="/xianweiblogs.github.io/2019/08/09/forEach到底可以改变原数组吗/" class="archive-article-date">
-  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="forEach到底可以改变原数组吗"><a href="#forEach到底可以改变原数组吗" class="headerlink" title="forEach到底可以改变原数组吗?"></a>forEach到底可以改变原数组吗?</h2><blockquote>
-<p>这几天在平时练习的时候，发现一个很匪夷所思的问题！就是我的印象中，<code>forEach</code>是可以改变原数组的呀！！！????，but ！为什么现在这么简单的字符串数字组成的数组，咋就永远改不了原数组那？？？咋就这么费劲的吗？？？</p>
-<p>后来，在各种尝试无果后，硬是逼着我，无奈的打开了项目，我就想看看平时我都用的这么理所当然可以改变的<code>forEach</code>到底咋就可以改变了！</p>
-<p>后来，仔细一看，我一般在项目中数组操作的都是<strong>对象数组</strong>，而不是<strong>数字字符串数组</strong>，接着上网一查才知道根本原因：原来是因为是<strong>引用类型与基本数据类型的区别呀！</strong></p>
-<p>参考链接：<a href="https://blog.csdn.net/Janus_lian/article/details/90403653" target="_blank" rel="noopener">https://blog.csdn.net/Janus_lian/article/details/90403653</a></p>
-</blockquote>
-<h3 id="1、基本数据类型-gt-死都改不动原数组！"><a href="#1、基本数据类型-gt-死都改不动原数组！" class="headerlink" title="1、基本数据类型 -&gt; 死都改不动原数组！"></a>1、基本数据类型 -&gt; 死都改不动原数组！</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">array.forEach(<span class="function"><span class="params">ele</span> =&gt;</span> &#123;</span><br><span class="line">ele = ele * <span class="number">3</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(array); <span class="comment">// [1,2,3,4]</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2、引用类型-gt-类似对象数组可以爽快改变偶"><a href="#2、引用类型-gt-类似对象数组可以爽快改变偶" class="headerlink" title="2、引用类型 -&gt; 类似对象数组可以爽快改变偶~"></a>2、引用类型 -&gt; 类似对象数组可以爽快改变偶~</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> objArr = [&#123;</span><br><span class="line">    name: <span class="string">'wxw'</span>,</span><br><span class="line">    age: <span class="number">22</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    name: <span class="string">'wxw2'</span>,</span><br><span class="line">    age: <span class="number">33</span></span><br><span class="line">&#125;]</span><br><span class="line">objArr.forEach(<span class="function"><span class="params">ele</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (ele.name === <span class="string">'wxw2'</span>) &#123;</span><br><span class="line">        ele.age = <span class="number">88</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(objArr); <span class="comment">// [&#123;name: "wxw", age: 22&#125;,&#123;name: "wxw2", age: 88&#125;]</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3、那引用类型-gt-改变整个单次循环的item那？-gt-NO！不行"><a href="#3、那引用类型-gt-改变整个单次循环的item那？-gt-NO！不行" class="headerlink" title="3、那引用类型 -&gt; 改变整个单次循环的item那？ -&gt; NO！不行"></a>3、那引用类型 -&gt; 改变整个单次循环的item那？ -&gt; NO！不行</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> changeItemArr = [&#123;</span><br><span class="line">    name: <span class="string">'wxw'</span>,</span><br><span class="line">    age: <span class="number">22</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    name: <span class="string">'wxw2'</span>,</span><br><span class="line">    age: <span class="number">33</span></span><br><span class="line">&#125;]</span><br><span class="line">changeItemArr.forEach(<span class="function"><span class="params">ele</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (ele.name === <span class="string">'wxw2'</span>) &#123;</span><br><span class="line">        ele = &#123;</span><br><span class="line">            name: <span class="string">'change'</span>,</span><br><span class="line">            age: <span class="number">77</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(changeItemArr); <span class="comment">// [&#123;name: "wxw", age: 22&#125;,&#123;name: "wxw2", age: 33&#125;]</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4、终极无敌屡试不爽的方法！"><a href="#4、终极无敌屡试不爽的方法！" class="headerlink" title="4、终极无敌屡试不爽的方法！"></a>4、终极无敌屡试不爽的方法！</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基本类型可以欧~</span></span><br><span class="line"><span class="keyword">const</span> numArr = [<span class="number">33</span>,<span class="number">4</span>,<span class="number">55</span>];</span><br><span class="line">numArr.forEach(<span class="function">(<span class="params">ele, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (ele === <span class="number">33</span>) &#123;</span><br><span class="line">        arr[index] = <span class="number">999</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(numArr);  <span class="comment">// [999, 4, 55]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 引用类型也可以欧~</span></span><br><span class="line"><span class="keyword">const</span> allChangeArr = [&#123;</span><br><span class="line">    name: <span class="string">'wxw'</span>,</span><br><span class="line">    age: <span class="number">22</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    name: <span class="string">'wxw2'</span>,</span><br><span class="line">    age: <span class="number">33</span></span><br><span class="line">&#125;]</span><br><span class="line">allChangeArr.forEach(<span class="function">(<span class="params">ele, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (ele.name === <span class="string">'wxw2'</span>) &#123;</span><br><span class="line">        arr[index] = &#123;</span><br><span class="line">            name: <span class="string">'change'</span>,</span><br><span class="line">            age: <span class="number">77</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(allChangeArr); <span class="comment">// // [&#123;name: "wxw", age: 22&#125;,&#123;name: "change", age: 77&#125;]</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h3><ul>
-<li>基本类型我们当次循环拿到的<strong>ele</strong>，只是forEach给我们在另一个地方复制创建新元素，是和原数组这个元素没有半毛钱联系的！所以，我们使命给循环拿到的<strong>ele</strong>赋值都是无用功！</li>
-<li>专业的概念说就是：JavaScript是有<strong>基本数据类型</strong>与<strong>引用数据类型</strong>之分的。对于基本数据类型：<code>number</code>,<code>string</code>,<code>Boolean</code>,<code>null</code>,<code>undefined</code>它们在<strong>栈内存中直接存储变量与值</strong>。而Object对象的真正的数据是保存在<strong>堆内存</strong>，<strong>栈内只保存了对象的变量以及对应的堆的地址</strong>，所以操作Object其实就是直接操作了原数组对象本身。</li>
-<li>forEach 的基本原理也是for循环，使用arr[index]的形式赋值改变，无论什么就都可以改变了。</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/xianweiblogs.github.io/2019/08/09/forEach到底可以改变原数组吗/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="photo-关于vue动画的学习总结" class="article article-type-photo  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于vue动画的学习总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -540,7 +379,7 @@
 
 
   
-    <article id="photo-整理一些JavaScript和typescript规范" class="article article-type-photo  article-index" itemscope itemprop="blogPost">
+    <article id="post-整理一些JavaScript和typescript规范" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -897,6 +736,260 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/xianweiblogs.github.io/2019/08/09/整理一些JavaScript和typescript规范/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-前端面试问题解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/xianweiblogs.github.io/2019/08/09/前端面试问题解析/">前端面试问题解析</a>
+    </h1>
+  
+
+        
+        <a href="/xianweiblogs.github.io/2019/08/09/前端面试问题解析/" class="archive-article-date">
+  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="100题详细链接"><a href="#100题详细链接" class="headerlink" title="100题详细链接"></a><a href="https://juejin.im/post/5d23e750f265da1b855c7bbe?utm_source=gold_browser_extension" target="_blank" rel="noopener">100题详细链接</a></h2><h3 id="‘1’-‘2’-‘3’-map-parseInt-what-amp-why"><a href="#‘1’-‘2’-‘3’-map-parseInt-what-amp-why" class="headerlink" title="[‘1’, ‘2’, ‘3’].map(parseInt) what &amp; why ?"></a>[‘1’, ‘2’, ‘3’].map(parseInt) what &amp; why ?</h3><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// [<span class="number">1</span>, <span class="literal">NaN</span>, <span class="literal">NaN</span>]</span><br><span class="line">[<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>].<span class="keyword">map</span>((<span class="type">item</span>, index) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> parseInt(<span class="type">item</span>, index)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="setTimeout、Promise、Async-Await-的区别"><a href="#setTimeout、Promise、Async-Await-的区别" class="headerlink" title="setTimeout、Promise、Async/Await 的区别"></a>setTimeout、Promise、Async/Await 的区别</h3><h4 id="事件循环中分为宏任务队列和微任务队列"><a href="#事件循环中分为宏任务队列和微任务队列" class="headerlink" title="事件循环中分为宏任务队列和微任务队列"></a>事件循环中分为宏任务队列和微任务队列</h4><ul>
+<li>settimeout的回调函数放到宏任务队列里，等到执行栈清空以后执行；</li>
+<li>promise.then里的回调函数会放到相应宏任务的微任务队列里，等宏任务里面的同步代码执行完再执行；</li>
+<li>async函数表示函数里面可能会有异步方法。await后面跟一个表达式，async方法执行时，遇到await会立即执行表达式，然后把表达式后面的代码放到微任务队列里，让出执行栈让同步代码先执行。</li>
+<li>结合下题思考<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async1 start'</span>);</span><br><span class="line">  <span class="keyword">await</span> async2();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async1 end'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async2'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line">async1();</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">  resolve();</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/7" target="_blank" rel="noopener">详细解析链接</a></p>
+<h3 id="下面代码输出什么？"><a href="#下面代码输出什么？" class="headerlink" title="下面代码输出什么？"></a>下面代码输出什么？</h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a = <span class="number">10</span><span class="comment">;</span></span><br><span class="line">(<span class="name">function</span> () &#123;</span><br><span class="line">    console.log(<span class="name">a</span>)</span><br><span class="line">    a = <span class="number">5</span></span><br><span class="line">    console.log(<span class="name">window</span>.a)</span><br><span class="line">    var a = <span class="number">20</span><span class="comment">;</span></span><br><span class="line">    console.log(<span class="name">a</span>)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<h3 id="Vue-的父组件和子组件生命周期钩子执行顺序是什么"><a href="#Vue-的父组件和子组件生命周期钩子执行顺序是什么" class="headerlink" title="Vue 的父组件和子组件生命周期钩子执行顺序是什么?"></a>Vue 的父组件和子组件生命周期钩子执行顺序是什么?</h3><p>解析如<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/128" target="_blank" rel="noopener">链接</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/xianweiblogs.github.io/2019/08/09/前端面试问题解析/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JavaScript设计模式-发布订阅模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/">JavaScript设计模式-发布订阅模式</a>
+    </h1>
+  
+
+        
+        <a href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/" class="archive-article-date">
+  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JavaScript设计模式"><a href="#JavaScript设计模式" class="headerlink" title="JavaScript设计模式"></a>JavaScript设计模式</h3><h4 id="发布订阅模式"><a href="#发布订阅模式" class="headerlink" title="发布订阅模式"></a>发布订阅模式</h4><p>发布-订阅模式又叫做观察者模式，他定义了一种一对多的依赖关系，即当一个对象的状态发生改变的时候，所有依赖他的对象都会得到通知。</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.<span class="keyword">body</span>.addEventListener(<span class="symbol">'click</span>',<span class="keyword">function</span> <span class="title"></span>() &#123;</span><br><span class="line">  alert(2333);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发布者</li>
+<li>缓存列表（订阅了消息对象）</li>
+<li>发布消息的时候遍历缓存列表，依次触发里面存放的订阅者的回调函数</li>
+<li>另外，回调函数中还可以添加很多参数，订阅者可以接收这些参数，订阅者收到消息后可以进行各自的处理。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> event = &#123;</span><br><span class="line">  peopleList: [],</span><br><span class="line">  listen: <span class="function"><span class="keyword">function</span> (<span class="params">key,fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.peopleList[key]) &#123; </span><br><span class="line">    <span class="comment">//如果没有订阅过此类消息，创建一个缓存列表</span></span><br><span class="line">    <span class="keyword">this</span>.peopleList[key] = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.peopleList[key].push(fn)</span><br><span class="line">  &#125;,</span><br><span class="line">  trigger: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> key = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">let</span> fns = <span class="keyword">this</span>.peopleList[key];</span><br><span class="line">    <span class="keyword">if</span> (!fns || fns.length == <span class="number">0</span>) &#123;<span class="comment">//没有订阅 则返回</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,fn;fn=fns[i++];)&#123;</span><br><span class="line">      fn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  remove:<span class="function"><span class="keyword">function</span> (<span class="params">key,fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fns = <span class="keyword">this</span>.clientList[key];</span><br><span class="line">    <span class="keyword">if</span>(!fns)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">if</span>(!fn) &#123;</span><br><span class="line">      fns &amp;&amp; (fns.length=<span class="number">0</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; fns.length; index++) &#123;</span><br><span class="line">        <span class="keyword">const</span> _fn = fns[index];</span><br><span class="line">        <span class="keyword">if</span>(_fn === fn)&#123;</span><br><span class="line">          fns.splice(index,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> installEvent  = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> event)&#123;</span><br><span class="line">    obj[i] = event[i];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> yourMsg = &#123;&#125;;</span><br><span class="line">installEvent(yourMsg);</span><br><span class="line">yourMsg.listen(<span class="string">'marrgie'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;name&#125;</span>想知道你结婚`</span>);</span><br><span class="line">&#125;)</span><br><span class="line">yourMsg.listen(<span class="string">'unemployment'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;name&#125;</span>想知道你失业`</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">yourMsg.trigger(<span class="string">'marrgie'</span>,<span class="string">'张三'</span>);</span><br><span class="line">yourMsg.trigger(<span class="string">'unemployment'</span>,<span class="string">'李四'</span>);</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/xianweiblogs.github.io/2019/08/09/JavaScript设计模式-发布订阅模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-代码规范优化清单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/xianweiblogs.github.io/2019/08/09/代码规范优化清单/">代码规范优化清单</a>
+    </h1>
+  
+
+        
+        <a href="/xianweiblogs.github.io/2019/08/09/代码规范优化清单/" class="archive-article-date">
+  	<time datetime="2019-08-09T08:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="代码规范优化清单"><a href="#代码规范优化清单" class="headerlink" title="代码规范优化清单"></a>代码规范优化清单</h2><blockquote>
+<p>此篇文档主要用来汇总关于代码规范以及更好的代码优化方面的记录清单！以此来更好的提高自身的代码规范，方便他人更快的去理解自己的代码，也为了不至于让别人看到自己的代码直接爆粗口，哈哈哈…</p>
+<p>参考文档：<a href="https://juejin.im/post/5d1c6550518825330a3bfa01#heading-12" target="_blank" rel="noopener">https://juejin.im/post/5d1c6550518825330a3bfa01#heading-12</a></p>
+</blockquote>
+<h3 id="1、关于常量"><a href="#1、关于常量" class="headerlink" title="1、关于常量"></a>1、关于常量</h3><ul>
+<li>建议变量采用大写加下划线的格式规范变量名：<code>LOGIN_NUM</code></li>
+</ul>
+<h3 id="2、多个函数参数"><a href="#2、多个函数参数" class="headerlink" title="2、多个函数参数"></a>2、多个函数参数</h3><ul>
+<li>函数参数如何超过2个，请使用<code>ES6的解构</code>语法，<strong>不需要考虑参数的顺序问题</strong>···</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testMoreParam</span>(<span class="params">&#123;title, age, sex, height&#125;</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(title);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">testMoreParam(&#123;</span><br><span class="line">    sex: <span class="string">'女'</span>,</span><br><span class="line">    height: <span class="string">'165cm'</span>,</span><br><span class="line">    age: <span class="number">22</span>,</span><br><span class="line">    title: <span class="string">'我是标题'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、参数默认值"><a href="#3、参数默认值" class="headerlink" title="3、参数默认值"></a>3、参数默认值</h3><ul>
+<li>一直知道，一直想不起来用…</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createMicrobrewery</span>(<span class="params">name = <span class="string">"Hipster Brew Co."</span></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、尽量简化代码，使用函数式编程，让代码更优雅"><a href="#4、尽量简化代码，使用函数式编程，让代码更优雅" class="headerlink" title="4、尽量简化代码，使用函数式编程，让代码更优雅"></a>4、尽量简化代码，使用函数式编程，让代码更优雅</h3><ul>
+<li>借此栗子学习两个重要的方法：<code>map</code> <code>reduce</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> programmerOutput = [&#123;</span><br><span class="line">    name: <span class="string">'Uncle Bobby'</span>,</span><br><span class="line">    linesOfCode: <span class="number">500</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    name: <span class="string">'Suzie Q'</span>,</span><br><span class="line">    linesOfCode: <span class="number">1500</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    name: <span class="string">'Jimmy Gosling'</span>,</span><br><span class="line">    linesOfCode: <span class="number">150</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    name: <span class="string">'Gracie Hopper'</span>,</span><br><span class="line">    linesOfCode: <span class="number">1000</span></span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">// map有一个很棒的用处：它可以从数组对象中取出某个key的所有value值再拼成一个新数组返回！</span></span><br><span class="line"><span class="built_in">console</span>.log(programmerOutput.map(<span class="function"><span class="params">ele</span> =&gt;</span> ele.linesOfCode));    <span class="comment">// [500,1500,150,1000]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> allLine = programmerOutput.map(<span class="function"><span class="params">ele</span> =&gt;</span> ele.linesOfCode).reduce(<span class="function">(<span class="params">pre, current</span>) =&gt;</span> &#123;    <span class="comment">// 合计：3150</span></span><br><span class="line">    <span class="keyword">return</span> pre + current</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>我们再来回头学习一下生疏的<code>reduce</code>语法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数： accumulator：累计器  currentValue：当前值  currentIndex：当前值的索引  array：数组  </span></span><br><span class="line"><span class="comment">// 可选：initialValue：初始值（第一次调用函数时第一个参数的值，没有提供此初始值，将使用数组中的第一个！）</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">30</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">349</span>, <span class="number">39</span>];</span><br><span class="line">array.reduce(<span class="function">(<span class="params">acc,cur</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'acc'</span>, acc); <span class="comment">// 30 -&gt; 53 -&gt; 82 -&gt; 431</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'cur'</span>, cur); <span class="comment">// 23 -&gt; 29 -&gt; 349 -&gt; 39</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'curIndex'</span>, curIndex); <span class="comment">// 1,2,3,4</span></span><br><span class="line">    <span class="keyword">return</span> acc + cur; </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">30</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">349</span>, <span class="number">39</span>];</span><br><span class="line">array.reduce(<span class="function">(<span class="params">acc, cur, curIndex</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'acc'</span>, acc); <span class="comment">// 9999 -&gt; 10029 -&gt; 10052 -&gt; 10081 -&gt; 10430</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'cur'</span>, cur); <span class="comment">// 30 -&gt; 23 -&gt; 29 -&gt; 349 -&gt; 39</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'curIndex'</span>, curIndex); <span class="comment">// 0 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 4</span></span><br><span class="line">    <span class="keyword">return</span> acc + cur;</span><br><span class="line">&#125;, <span class="number">9999</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、关于css变量-以及样式配置文件的命名规范"><a href="#5、关于css变量-以及样式配置文件的命名规范" class="headerlink" title="5、关于css变量$以及样式配置文件的命名规范"></a>5、关于css变量<code>$</code>以及样式配置文件的命名规范</h3><ul>
+<li>利用sass,less中的变量配置，在项目初期针对项目的基础配色以及字体大小，间距等…进行统一设置引用，非常有利于项目后期的维护！</li>
+<li>局部文件应该使用<code>_name</code>的形式命名。这样在编译的时候就不会把这个文件单独输出成css，而只是当做导入文件。</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// _variables.less</span></span><br><span class="line"><span class="variable">@body-bg:</span><span class="number">#f3f3f3</span>;  <span class="comment">// 页面背景颜色</span></span><br><span class="line"><span class="comment">// 色板 根据项目变化改变色</span></span><br><span class="line"><span class="variable">@blue:</span>                   <span class="number">#2080D4</span>;</span><br><span class="line"><span class="variable">@yellow:</span>                 <span class="number">#feb426</span>;</span><br><span class="line"><span class="variable">@red:</span>                    <span class="number">#f33</span>;</span><br><span class="line"><span class="variable">@green:</span>                  <span class="number">#00be71</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6、多行分割一个元素的多个属性"><a href="#6、多行分割一个元素的多个属性" class="headerlink" title="6、多行分割一个元素的多个属性"></a>6、多行分割一个元素的多个属性</h3><ul>
+<li>之前还特意将所有属性弄成一行，觉得显得代码行数少…  但是代码可读性就不高了！</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span></span></span><br><span class="line"><span class="tag">  <span class="attr">foo</span>=<span class="string">"a"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">bar</span>=<span class="string">"b"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">baz</span>=<span class="string">"c"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7、使用逻辑与运算符简化-gt-简化一般的if判断"><a href="#7、使用逻辑与运算符简化-gt-简化一般的if判断" class="headerlink" title="7、使用逻辑与运算符简化  -&gt; 简化一般的if判断"></a>7、使用逻辑与运算符简化  -&gt; 简化一般的if判断</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.condition) &#123;</span><br><span class="line">    <span class="keyword">this</span>.getUerInfo()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">this</span>.condition &amp;&amp; <span class="keyword">this</span>.getUserInfo()</span><br></pre></td></tr></table></figure>
+
+<h3 id="8、使用includes处理多重或（-）判断"><a href="#8、使用includes处理多重或（-）判断" class="headerlink" title="8、使用includes处理多重或（| |）判断"></a>8、使用<code>includes</code>处理多重或（| |）判断</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> param = <span class="string">'condition1'</span>;</span><br><span class="line"><span class="keyword">if</span> (param === <span class="string">'condition1'</span> || param === <span class="string">'condition2'</span> || param === <span class="string">'condition3'</span>) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">if</span> ([<span class="string">'condition1'</span>,<span class="string">'condition2'</span>,<span class="string">'condition3'</span>].includes(param)) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/xianweiblogs.github.io/2019/08/09/代码规范优化清单/">展开全文 >></a>
         </p>
       
 
